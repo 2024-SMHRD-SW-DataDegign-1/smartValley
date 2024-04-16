@@ -9,7 +9,9 @@ public class Ex01 {
 		
 		System.out.println("팀원2 세번째 커밋");
 		
-		
+		for(int i = 1; i < 11 ;i++) {
+			System.out.println("Hello world"+i);
+		}
 		
 		
 		
