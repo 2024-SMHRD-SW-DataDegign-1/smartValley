@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 public class GameMenu {
 
-	public void runGameMenu() {
-		// 로그인한 계정 객체 생성
-		LoginAccount login = new LoginAccount();
+	public LoginAccount runGameMenu(LoginAccount login) {
+//		// 로그인한 계정 객체 생성
+//		LoginAccount login = new LoginAccount();
 		
 		// 농사하기 객체 생성
 		ActFarm actFarm = new ActFarm();
@@ -47,6 +47,8 @@ public class GameMenu {
 			
 			
 		}
+		
+		return login;
 		
 	}
 	

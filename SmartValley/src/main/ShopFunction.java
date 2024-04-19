@@ -135,7 +135,15 @@ public class ShopFunction {
 		}
 		// 1-2) 소지한 골드가 작물 씨앗 가격보다 적을 때
 		else {
+			// array[]의 값이 현재 전부 0이기 때문에, 현재 로그인 계정의 정보를 array[]에 담아야 골드가 0이 되는 문제가 발생하지 않음
+			array[0] = login.getGold();
+			array[1] = login.getCrsdCount();
+			array[2] = login.getTmtsdCount();
+			array[3] = login.getRdsdCount();
+			array[4] = login.getPksdCount();
+			
 			System.out.println("씨앗을 구매할 골드가 부족합니다 ! ");
+			
 		}
 		return array;
 	}

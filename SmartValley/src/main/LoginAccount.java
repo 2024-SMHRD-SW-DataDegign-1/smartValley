@@ -2,9 +2,12 @@ package main;
 
 public class LoginAccount {
 
+	// 게임 종료 여부 정보
+	private boolean gameOver = false;
+	
 	// ID 정보
-	private String id = "OO";
-	private String farmName = "oo";
+	private String id = "";
+	private String farmName = "";
 	
 	// 날짜 정보
 	private int gameDay = 1;
@@ -32,7 +35,13 @@ public class LoginAccount {
     private int rdsdCount = 0; // 무
     private int pksdCount = 0; // 호박
 	
-	// Getter, Setter
+    // Getter, Setter
+	public boolean getGameOver() {
+		return gameOver;
+	}
+	public void setGameOver(boolean gameOver) {
+		this.gameOver = gameOver;
+	}
 	public String getId() {
 		return id;
 	}

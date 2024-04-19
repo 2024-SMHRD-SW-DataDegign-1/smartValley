@@ -72,7 +72,7 @@ public class DAO {
 			} else {
 				//중복 없을 시
 				checkNum = 1;
-				System.out.println("회원가입 성공!  프롤로그를 시청하시겠어요?");
+//				System.out.println("회원가입 성공!  프롤로그를 시청하시겠어요?");
 			}
 			
 			//중복값이 없을 때 회원가입 실행
@@ -102,13 +102,17 @@ public class DAO {
 	}
 
 	// 로그인 기능
-	public String login(String LoginId, String LoginPw) {
+	public String[] login(String LoginId, String LoginPw) {
 
 		conn();
-		String sql = "SELECT ID FROM ACCOUNT WHERE ID = ? AND PW = ?";
+		String sql = "SELECT ID, FARMNAME FROM ACCOUNT WHERE ID = ? AND PW = ?";
 		ResultSet rs = null;
 
 		String name = "";
+		String farmName = "";
+		
+		String[] loginInfo = {name, farmName};
+		
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, LoginId);
@@ -119,6 +123,9 @@ public class DAO {
 			if (rs.next()) {
 				//결과데이터 중 첫번째 컬럼값
 				name = rs.getString(1);
+				farmName = rs.getString(2);
+				loginInfo[0] = name;
+				loginInfo[1] = farmName;
 			}
 
 		} catch (SQLException e) {
@@ -126,7 +133,7 @@ public class DAO {
 		} finally {
 			dbClose();
 		}
-		return name;
+		return loginInfo;
 
 	}
 
