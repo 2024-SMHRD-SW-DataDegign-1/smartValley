@@ -50,23 +50,53 @@ public class DAO {
 
 	// 회원가입
 	public int join(String id, String pw, String farm) {
-		String sql = "INSERT INTO ACCOUNT VALUES(?,?,?)";
+		
+		//DB 연결
+		conn();
 		int row = 0;
 		try {
-			psmt = conn.prepareStatement(sql);
+			// 중복값 확인 쿼리
+			String sql1 = "SELECT * FROM ACCOUNT WHERE ID = ? OR FARMNAME = ?";
+			
+			int checkNum = 0;
+			psmt = conn.prepareStatement(sql1);
 			psmt.setString(1, id);
-			psmt.setString(2, pw);
-			psmt.setString(3, farm);
+			psmt.setString(2, farm);
 
-			row = psmt.executeUpdate();
+			ResultSet rs = psmt.executeQuery();
+
+			if (rs.next()) {
+				//중복 시
+				checkNum = 0;
+				System.out.println("사용중입니다 ( •ᴗ•̥ ˳ ) 다시 입력해주세요!");
+			} else {
+				//중복 없을 시
+				checkNum = 1;
+				System.out.println("회원가입 성공 ˶•⩊•˶ 프롤로그를 시청하시겠어요?");
+			}
+			
+			//중복값이 없을 때 회원가입 실행
+			if(checkNum == 1){
+				//회원가입 쿼리문
+				String sql2 = "INSERT INTO ACCOUNT VALUES(?,?,?)";
+				
+				psmt = conn.prepareStatement(sql2);
+				psmt.setString(1, id);
+				psmt.setString(2, pw);
+				psmt.setString(3, farm);
+				
+				row = psmt.executeUpdate();
+			}
+			
 
 		} catch (Exception e) {
 
-			//e.printStackTrace();
-
-		} finally {
+		}finally {
+			//DB종료
 			dbClose();
 		}
+		
+		
 		return row;
 
 	}
@@ -74,6 +104,7 @@ public class DAO {
 	// 로그인 기능
 	public String login(String LoginId, String LoginPw) {
 
+		conn();
 		String sql = "SELECT ID FROM ACCOUNT WHERE ID = ? AND PW = ?";
 		ResultSet rs = null;
 
