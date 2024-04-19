@@ -126,7 +126,7 @@ public class Main {
 				}
 
 			} else { // 게임종료
-				System.out.println("게임이 종료되었습니다. Good Game... ・ᴗ・)!");
+				System.out.println("게임이 종료되었습니다. Good Game...)!");
 				bgm.stop();
 				break;
 
