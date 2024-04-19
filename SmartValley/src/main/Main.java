@@ -56,36 +56,14 @@ public class Main {
 				System.out.print("농장이름 입력 : ");
 				String farm = sc.next();
 
-				// DB 연결
-				dao.conn();
-
-
-				// 입력값이 중복된 데이터가 있는지 확인하는 거 먼저
-				String sql = "SELECT * FROM ACCOUNT WHERE ID = ? OR FARMNAME = ?";
-
-				int checkNum = 0;
-				try {
-					psmt = conn.prepareStatement(sql);
-					psmt.setString(1, joinId);
-					psmt.setString(2, farm);
-
-					ResultSet rs = psmt.executeQuery();
-
-					if (rs.next() || rs.getString(1).equals(joinId) || rs.getString(2).equals(farm)) {
-						checkNum = 0;
-						System.out.println("사용중입니다. 다시 입력해주세요!");
-					} else {
-						checkNum = 1;
-						System.out.println("회원가입 성공 ˶•⩊•˶ 프롤로그를 시청하시겠어요?");
-					}
-
-				} catch (Exception e) {
-
-				}
+				
 
 				// 회원가입 쿼리문
 				int row = dao.join(joinId, joinPw, farm);
-
+				
+				//row 값 확인
+				//System.out.println("회원가입 row : " + row);
+				
 				int prolNum = 0;
 
 				if (row > 0) {
@@ -130,7 +108,7 @@ public class Main {
 					String loginPw = sc.next();
 
 					// DB 연결
-					dao.conn();
+					//dao.conn();
 
 					// 로그인 쿼리문
 					// SELECT ID FROM ACCOUNT WHERE ID = ? AND PW = ?
