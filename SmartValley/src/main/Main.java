@@ -118,16 +118,16 @@ public class Main {
 				// 이어하기,Login
 				try {
 					System.out.print("ID 입력 : ");
-					String LoginId = sc.next();
+					String loginId = sc.next();
 					System.out.print("PW 입력 : ");
-					String LoginPw = sc.next();
+					String loginPw = sc.next();
 
 					// DB 연결
 					dao.conn();
 
 					// 로그인 쿼리문
 					// SELECT ID FROM ACCOUNT WHERE ID = ? AND PW = ?
-					String name = dao.login(LoginId, LoginPw);
+					String name = dao.login(loginId, loginPw);
 
 					if (name.equals("")) {
 						//값이 없거나 틀렸을 때

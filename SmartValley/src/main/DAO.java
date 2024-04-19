@@ -76,7 +76,6 @@ public class DAO {
 
 		String sql = "SELECT ID FROM ACCOUNT WHERE ID = ? AND PW = ?";
 		ResultSet rs = null;
-		// ResultSet : select 절을 통한 테이블 형식 데이터를 받아 올 수 있는 타입
 
 		String name = "";
 		try {
@@ -84,14 +83,11 @@ public class DAO {
 			psmt.setString(1, LoginId);
 			psmt.setString(2, LoginPw);
 
-			// executeQuery --> 쿼리문을 통해서 테이블에 있는 데이터에 영향을 끼치지 않을 때 사용 되어진다.
 			rs = psmt.executeQuery();
 
-			// rs.next() : 다음행에 데이터가 있는지 확인하는 기능
 			if (rs.next()) {
-				// rs.getString(2) : 결과데이터 중 두번째 컬럼에 있는 데이터를 문자열로 받아오겠다!
+				//결과데이터 중 첫번째 컬럼값
 				name = rs.getString(1);
-				// System.out.println("이름 출력 : "+name);
 			}
 
 		} catch (SQLException e) {
