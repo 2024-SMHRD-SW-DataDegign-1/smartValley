@@ -3,6 +3,7 @@ package main;
 import java.sql.ResultSet;
 import java.util.Scanner;
 
+import javazoom.jl.player.MP3Player;
 
 import java.sql.PreparedStatement;
 import java.sql.Connection;
@@ -11,26 +12,36 @@ public class Main {
 
 	public static void main(String[] args) {
 		DAO dao = new DAO();
-		Connection conn = null;
+		
+		//노래 재생 도구
+		MP3Player bgm = new MP3Player();
+		
+		
+		
 		// 오라클 연결
-		PreparedStatement psmt = null;
+		Connection conn = null;
 		// 쿼리문 전달
-
+		PreparedStatement psmt = null;
+		
+		//입력 도구
 		Scanner sc = new Scanner(System.in);
-
+		
+		bgm.play("C:\\Users\\smhrd\\Desktop\\JavaStudy\\Mini\\bgm\\Valley.mp3");
+		
 		System.out.println("===================================");
 		System.out.println("                                   ");
 		System.out.println("             WELCOME TO            ");
 		System.out.println("            SMART VALLEY           ");
 		System.out.println("                                   ");
 		System.out.println("===================================");
-
+		
 		while (true) {
+			//타이틀 메뉴
 			System.out.print("[1] 새로하기   [2] 이어하기   [3] 종료   >>  ");
 			int title = sc.nextInt();
-
-			if (title == 1) { // 새로하기,Join
-
+			
+			if (title == 1) {
+				 // 새로하기,Join
 				System.out.print("ID 입력 : ");
 				String joinId = sc.next();
 				System.out.print("PW 입력 : ");
@@ -89,6 +100,7 @@ public class Main {
 							break;
 						} else {
 							System.out.println("게임이 종료되었습니다. Good Game... ദ്ദി・ᴗ・)✧");
+							bgm.stop();
 							break;
 						}
 
@@ -102,8 +114,8 @@ public class Main {
 					System.out.println("회원가입 실패 ( •ᴗ•̥ ˳ ) 다시 시도해주세요. ");
 
 				}
-			} else if (title == 2) { // 이어하기,Login
-
+			} else if (title == 2) { 
+				// 이어하기,Login
 				try {
 					System.out.print("ID 입력 : ");
 					String LoginId = sc.next();
@@ -118,8 +130,10 @@ public class Main {
 					String name = dao.login(LoginId, LoginPw);
 
 					if (name.equals("")) {
+						//값이 없거나 틀렸을 때
 						System.out.println("로그인 실패! 다시 입력해주세요 ｡° ૮₍°´ᯅ`°₎ა °｡");
 					} else {
+						// 로그인 성공 시
 						System.out.println(name + "님 환영합니다 ₍₍ ◝( ◉ ‸ ◉ )◟ ⁾⁾ \n오늘 하루도 힘차게 시작해봐요!!");
 						break;
 					}
@@ -129,19 +143,12 @@ public class Main {
 
 			} else { // 게임종료
 				System.out.println("게임이 종료되었습니다. Good Game... ദ്ദി・ᴗ・)✧");
+				bgm.stop();
 				break;
 
 			}
 		}
 
-	
-		
-		
-		
-		
-		
-		
-		
 	}
 
 }
