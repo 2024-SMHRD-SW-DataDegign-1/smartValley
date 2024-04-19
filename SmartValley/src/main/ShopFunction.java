@@ -1,6 +1,5 @@
 package main;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ShopFunction {
@@ -19,6 +18,7 @@ public class ShopFunction {
 	// 상점 메뉴 기능
 	public void shopMenu(int gold, int crCount, int tmtCount, int rdCount, int pkCount, int crsdCount, int tmtsdCount,
 			int rdsdCount, int pksdCount) {
+	
 		while (true) {
 			System.out.print("[1] 씨앗 구매 [2]수확물 판매 [3]이전으로 >> ");
 			int shopmenuNum = sc.nextInt();
