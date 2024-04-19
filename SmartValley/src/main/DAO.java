@@ -68,11 +68,11 @@ public class DAO {
 			if (rs.next()) {
 				//중복 시
 				checkNum = 0;
-				System.out.println("사용중입니다 ( •ᴗ•̥ ˳ ) 다시 입력해주세요!");
+				System.out.println("사용중입니다. 다시 입력해주세요!");
 			} else {
 				//중복 없을 시
 				checkNum = 1;
-				System.out.println("회원가입 성공 ˶•⩊•˶ 프롤로그를 시청하시겠어요?");
+				System.out.println("회원가입 성공!  프롤로그를 시청하시겠어요?");
 			}
 			
 			//중복값이 없을 때 회원가입 실행

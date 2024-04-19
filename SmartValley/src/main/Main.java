@@ -67,15 +67,16 @@ public class Main {
 				int prolNum = 0;
 
 				if (row > 0) {
-					System.out.println("회원가입 성공 ˶•⩊•˶ 프롤로그를 시청하시겠어요? ");
+
 					System.out.print("[1] 네      [2] 아니오   >>   ");
 					prolNum = sc.nextInt();
 
 					if (prolNum == 1) {
 						// 프롤로그 보기
+						System.out.println();
 						System.out.println("나는 스인개 출신 시니어 개발자 n년차를 달리고 있었다,, \n개발자란 이런걸까,,?");
 						System.out.println(
-								"내가 꿈꿔왔던 워라밸은 어디간거지,,? ʕ ´•̥̥̥ ᴥ•̥̥̥`ʔ \n이렇게는 살 수 없어,,,!!!!!!!  (ʘ言ʘ╬) \n내 꿈을 찾아 떠난다! 지!금!당!장!");
+								"내가 꿈꿔왔던 워라밸은 어디간거지,,?  （´＿｀） \n이렇게는 살 수 없어,,,!!!!!!!     \n내 꿈을 찾아 떠난다! 지!금!당!장!");
 						System.out.println();
 						System.out.print("게임 시작  >>  [1] 네  [2] 아니오 ");
 						int ans = sc.nextInt();
@@ -84,7 +85,7 @@ public class Main {
 							System.out.println(joinId + "님 환영합니다. \n 오늘 하루도 힘차게 시작해봐요!!");
 							break;
 						} else {
-							System.out.println("게임이 종료되었습니다. Good Game... ദ്ദി・ᴗ・)✧");
+							System.out.println("게임이 종료되었습니다. Good Game... ・ᴗ・)!");
 							bgm.stop();
 							break;
 						}
@@ -92,11 +93,10 @@ public class Main {
 					} else if (prolNum == 2) {
 						// 프롤로그 넘기기
 						System.out.println();
-						System.out.println(joinId + "님 환영합니다. \n 오늘 하루도 힘차게 시작해봐요!!");
+						System.out.println(joinId + "님 환영합니다 (=^ . ^=) \n 오늘 하루도 힘차게 시작해봐요!!");
 						break;
 					}
-				} else if (row == 0) {
-					System.out.println("회원가입 실패 ( •ᴗ•̥ ˳ ) 다시 시도해주세요. ");
+				
 
 				}
 			} else if (title == 2) { 
@@ -107,8 +107,7 @@ public class Main {
 					System.out.print("PW 입력 : ");
 					String loginPw = sc.next();
 
-					// DB 연결
-					//dao.conn();
+
 
 					// 로그인 쿼리문
 					// SELECT ID FROM ACCOUNT WHERE ID = ? AND PW = ?
@@ -116,10 +115,10 @@ public class Main {
 
 					if (name.equals("")) {
 						//값이 없거나 틀렸을 때
-						System.out.println("로그인 실패! 다시 입력해주세요 ｡° ૮₍°´ᯅ`°₎ა °｡");
+						System.out.println("로그인 실패! 다시 입력해주세요");
 					} else {
 						// 로그인 성공 시
-						System.out.println(name + "님 환영합니다 ₍₍ ◝( ◉ ‸ ◉ )◟ ⁾⁾ \n오늘 하루도 힘차게 시작해봐요!!");
+						System.out.println(name + "님 환영합니다 (=^ . ^=) \n오늘 하루도 힘차게 시작해봐요!!");
 						break;
 					}
 				} catch (Exception e) {
@@ -127,7 +126,7 @@ public class Main {
 				}
 
 			} else { // 게임종료
-				System.out.println("게임이 종료되었습니다. Good Game... ദ്ദി・ᴗ・)✧");
+				System.out.println("게임이 종료되었습니다. Good Game... ・ᴗ・)!");
 				bgm.stop();
 				break;
 
