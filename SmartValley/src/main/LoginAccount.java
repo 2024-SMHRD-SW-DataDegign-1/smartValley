@@ -2,7 +2,15 @@ package main;
 
 public class LoginAccount {
 
-	private int gold = 5000; // 재화(골드)
+	// ID 정보
+	private String id = "OO";
+	private String farmName = "oo";
+	
+	// 날짜 정보
+	private int gameDay = 1;
+	
+	// 골드 정보
+	private int gold = 0; // 재화(골드)
 	
 	// 밭 정보
 	private int condiFarm = 0; // 밭 상태
@@ -19,12 +27,30 @@ public class LoginAccount {
     private int pkCount = 0; // 호박
 
     // 보유한 씨앗 개수
-    private int crsdCount = 1; // 당근
+    private int crsdCount = 0; // 당근
     private int tmtsdCount = 0; // 토마토
-    private int rdsdCount = 1; // 무
+    private int rdsdCount = 0; // 무
     private int pksdCount = 0; // 호박
 	
 	// Getter, Setter
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getFarmName() {
+		return farmName;
+	}
+	public void setFarmName(String farmName) {
+		this.farmName = farmName;
+	}
+    public int getGameDay() {
+		return gameDay;
+	}
+	public void setGameDay(int gameDay) {
+		this.gameDay = gameDay;
+	}
     public int getGold() {
 		return gold;
 	}
@@ -49,10 +75,10 @@ public class LoginAccount {
 	public void setCntWater(int cntWater) {
 		this.cntWater = cntWater;
 	}
-	public boolean isHarvest() {
+	public boolean getIsHarvest() {
 		return isHarvest;
 	}
-	public void setHarvest(boolean isHarvest) {
+	public void setIsHarvest(boolean isHarvest) {
 		this.isHarvest = isHarvest;
 	}
 	public int getCrCount() {
