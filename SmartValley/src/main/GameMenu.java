@@ -41,6 +41,8 @@ public class GameMenu {
 				break;
 
 			case 4: // 돌아가기
+				System.out.println("타이틀로 돌아갑니다!");
+				System.out.println();
 				break;
 			
 			}
@@ -85,7 +87,7 @@ public class GameMenu {
 	// 농장명, 날짜, 소지 골드 정보 출력
 		public void printDayGoldInfo(LoginAccount login) {
 			System.out.println();
-			System.out.println("==========================================================");
+			System.out.println("==============================================================");
 			System.out.println(login.getFarmName() + "\t" + login.getGameDay() + "일차\t" + "소지 골드: " + login.getGold() + "G");
 			
 		}
@@ -113,12 +115,12 @@ public class GameMenu {
 		// 아이템 보유량 출력
 		System.out.println();
 		System.out.println("==============소지품==============");
-		System.out.println("아이템명\t\t씨앗\t수확물");
+		System.out.println("아이템명\t씨앗\t수확물");
 		System.out.println("당근\t\t" + login.getCrsdCount() + "\t" + login.getCrCount());
 		System.out.println("토마토\t\t" + login.getTmtsdCount() + "\t" + login.getTmtCount());
 		System.out.println("무\t\t" + login.getRdsdCount() + "\t" + login.getRdCount());
 		System.out.println("호박\t\t" + login.getPksdCount() + "\t" + login.getPkCount());
-		System.out.println("=================================");
+		System.out.println("==================================");
 		
 //		while (inv.next()) {
 //			System.out.print(inv.getString(2) + "\t\t");

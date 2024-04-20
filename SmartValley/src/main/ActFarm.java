@@ -121,7 +121,7 @@ public class ActFarm {
 
 		if (farm.getCondiFarm() == 1) {
 			System.out.println();
-			System.out.println("=====================어떤 씨앗을 심을까요?=====================");
+			System.out.println("====================어떤 씨앗을 심을까요?=====================");
 			System.out.print("[1] 당근 씨앗  [2] 토마토 씨앗  [3] 무 씨앗  [4] 호박 씨앗  [5] 이전으로  >> ");
 			int seedNum = sc.nextInt();
 

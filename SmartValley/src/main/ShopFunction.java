@@ -23,7 +23,7 @@ public class ShopFunction {
 		while (shopmenuNum != 3) {
 			System.out.println();
 			System.out.println("===================[상점]===================");
-			System.out.print("[1] 씨앗 구매  [2]수확물 판매  [3]이전으로 >> ");
+			System.out.print("[1] 씨앗 구매  [2] 수확물 판매  [3] 이전으로 >> ");
 			shopmenuNum = sc.nextInt();
 			if (shopmenuNum == 1) {
 				int[] array = seedBuy(login);
