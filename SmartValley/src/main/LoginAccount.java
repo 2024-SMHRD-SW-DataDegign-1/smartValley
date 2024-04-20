@@ -42,96 +42,112 @@ public class LoginAccount {
 	public void setGameOver(boolean gameOver) {
 		this.gameOver = gameOver;
 	}
+	
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
 	}
+	
 	public String getFarmName() {
 		return farmName;
 	}
 	public void setFarmName(String farmName) {
 		this.farmName = farmName;
 	}
-    public int getGameDay() {
+    
+	public int getGameDay() {
 		return gameDay;
 	}
 	public void setGameDay(int gameDay) {
 		this.gameDay = gameDay;
 	}
-    public int getGold() {
+    
+	public int getGold() {
 		return gold;
 	}
 	public void setGold(int gold) {
 		this.gold = gold;
 	}
+	
 	public int getCondiFarm() {
 		return condiFarm;
 	}
 	public void setCondiFarm(int condiFarm) {
 		this.condiFarm = condiFarm;
 	}
+	
 	public String getPlantName() {
 		return plantName;
 	}
 	public void setPlantName(String plantName) {
 		this.plantName = plantName;
 	}
+	
 	public int getCntWater() {
 		return cntWater;
 	}
 	public void setCntWater(int cntWater) {
 		this.cntWater = cntWater;
 	}
+	
 	public boolean getIsHarvest() {
 		return isHarvest;
 	}
 	public void setIsHarvest(boolean isHarvest) {
 		this.isHarvest = isHarvest;
 	}
+	
 	public int getCrCount() {
 		return crCount;
 	}
 	public void setCrCount(int crCount) {
 		this.crCount = crCount;
 	}
+	
 	public int getTmtCount() {
 		return tmtCount;
 	}
 	public void setTmtCount(int tmtCount) {
 		this.tmtCount = tmtCount;
 	}
+	
 	public int getRdCount() {
 		return rdCount;
 	}
 	public void setRdCount(int rdCount) {
 		this.rdCount = rdCount;
 	}
+	
 	public int getPkCount() {
 		return pkCount;
 	}
 	public void setPkCount(int pkCount) {
 		this.pkCount = pkCount;
 	}
+	
 	public int getCrsdCount() {
 		return crsdCount;
 	}
 	public void setCrsdCount(int crsdCount) {
 		this.crsdCount = crsdCount;
 	}
+	
 	public int getTmtsdCount() {
 		return tmtsdCount;
 	}
 	public void setTmtsdCount(int tmtsdCount) {
 		this.tmtsdCount = tmtsdCount;
 	}
+	
 	public int getRdsdCount() {
 		return rdsdCount;
 	}
 	public void setRdsdCount(int rdsdCount) {
 		this.rdsdCount = rdsdCount;
 	}
+	
 	public int getPksdCount() {
 		return pksdCount;
 	}

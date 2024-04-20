@@ -85,12 +85,12 @@ public class GameMenu {
 	}
 
 	// 농장명, 날짜, 소지 골드 정보 출력
-		public void printDayGoldInfo(LoginAccount login) {
-			System.out.println();
-			System.out.println("==============================================================");
-			System.out.println(login.getFarmName() + "\t" + login.getGameDay() + "일차\t" + "소지 골드: " + login.getGold() + "G");
-			
-		}
+	public void printDayGoldInfo(LoginAccount login) {
+		System.out.println();
+		System.out.println("==============================================================");
+		System.out.println(login.getFarmName() + "\t" + login.getGameDay() + "일차\t" + "소지 골드: " + login.getGold() + "G");
+		
+	}
 	
 	// 게임 메뉴 출력
 	public int printGameMenu() {

@@ -9,9 +9,9 @@ import java.sql.SQLException;
 
 public class DAO {
 
-	Connection conn = null;
+	private Connection conn = null;
 	// 오라클 연결
-	PreparedStatement psmt = null;
+	private PreparedStatement psmt = null;
 	// 쿼리문 전달
 
 	// DB 연결

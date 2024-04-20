@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class ActFarm {
 
+	// 농사짓기 메뉴 실행 메소드
 	public LoginAccount runActFarm(LoginAccount login) {
 		// 농장, 작물 정보 불러오기
 		Farm farm = loadFarm(login);
@@ -42,8 +43,6 @@ public class ActFarm {
 		return login;
 
 	}
-
-	
 	
 	// 농사짓기 메뉴 출력
 	public int printActFarmMenu() {
