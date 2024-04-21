@@ -32,15 +32,12 @@ public class TitleMenu {
 			login.setId(""); // 게임 메뉴로 진입하지 않도록 하는 조건
 			login.setGameOver(true); // Main의 while문 탈출 조건
 		}
-		
-
 		return login;
+		
 	}
 
 	// 타이틀 배너 출력 메소드
 	public void printTitleBanner() {
-//		System.out.println(
-//				"═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════");
 		System.out.println(
 				"===============================================================================================================================");
 		System.out.println("\r\n"
@@ -52,8 +49,6 @@ public class TitleMenu {
 				+ "#+#    #+# #+#       #+# #+#     #+# #+#    #+#     #+#        #+#+#+#   #+#     #+# #+#        #+#        #+#           #+#    \r\n"
 				+ " ########  ###       ### ###     ### ###    ###     ###          ###     ###     ### ########## ########## ##########    ###    \r\n"
 				+ "");
-//		System.out.println(
-//				"═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════");
 		System.out.println(
 				"===============================================================================================================================");
 	}
@@ -100,10 +95,11 @@ public class TitleMenu {
 
 					System.out.println();
 					printWelcome(joinId);
-//					System.out.println(joinId + "님 환영합니다 (=^ . ^=) \n 오늘 하루도 힘차게 시작해봐요!!");
+					
 				} else {
 					System.out.println("타이틀로 돌아갑니다!");
 					System.out.println();
+					
 				}
 
 			} else if (prolNum == 2) {
@@ -113,11 +109,10 @@ public class TitleMenu {
 
 				System.out.println();
 				printWelcome(joinId);
-//				System.out.println(joinId + "님 환영합니다 (=^ . ^=) \n 오늘 하루도 힘차게 시작해봐요!!");
+				
 			}
 
 		}
-
 		return login;
 
 	}
@@ -136,7 +131,6 @@ public class TitleMenu {
 			System.out.println();
 
 			// 로그인 쿼리문
-			// SELECT ID FROM ACCOUNT WHERE ID = ? AND PW = ?
 			String[] loginInfo = dao.login(loginId, loginPw);
 
 			if (loginInfo[0].equals("")) {
@@ -148,14 +142,11 @@ public class TitleMenu {
 				login = settingIdName(login, loginInfo[0], loginInfo[1]);
 
 				printWelcome(loginInfo[0]);
-//				System.out.println(name + "님 환영합니다 (=^ . ^=) \n오늘 하루도 힘차게 시작해봐요!!");
-//				break;
 			}
 
 		} catch (Exception e) {
 
 		}
-
 		return login;
 
 	}
@@ -172,6 +163,7 @@ public class TitleMenu {
 	// 로그인 환영 메시지
 	public void printWelcome(String joinId) {
 		System.out.println(joinId + "님 환영합니다 (=^ . ^=) \n 오늘 하루도 힘차게 시작해봐요!!");
+		
 	}
 
 }

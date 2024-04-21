@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class ActFarm {
 
+	private DAO dao = new DAO();
+
 	// 농사짓기 메뉴 실행 메소드
 	public LoginAccount runActFarm(LoginAccount login) {
 		// 농장, 작물 정보 불러오기
@@ -16,7 +18,6 @@ public class ActFarm {
 
 			switch (selectActMenu) {
 			case 1: // 개간
-//				login.setCondiFarm(farmClearning(login, farm)); 
 				farmClearning(login, farm);
 				break;
 
@@ -39,19 +40,19 @@ public class ActFarm {
 			}
 
 		}
-
 		return login;
 
 	}
-	
+
 	// 농사짓기 메뉴 출력
 	public int printActFarmMenu() {
 		Scanner sc = new Scanner(System.in);
-		
+
 		System.out.println();
 		System.out.println("======================활동을 선택하세요.======================");
 		System.out.print("[1] 개간  [2] 씨앗심기  [3] 물 뿌리기  [4] 수확하기  [5] 이전으로  >> ");
 		int selectMenu = sc.nextInt();
+		sc.close();
 
 		return selectMenu;
 	}
@@ -90,8 +91,15 @@ public class ActFarm {
 			farm.getPl().setIsHarvest(login.getIsHarvest());
 			break;
 
-		}
+		case "":
+			farm.setPl(new PlBlank());
+			farm.getPl().setField();
+			farm.getPl().setCntWater(0);
+			farm.getPl().setIsHarvest(false);
 
+			break;
+
+		}
 		return farm;
 
 	}
@@ -110,8 +118,6 @@ public class ActFarm {
 
 		}
 
-//		return farm.getCondiFarm();
-
 	}
 
 	// 씨앗심기
@@ -128,7 +134,6 @@ public class ActFarm {
 			case 1:
 				if (login.getCrsdCount() > 0) {
 					login.setCrsdCount(login.getCrsdCount() - 1);
-//					farm.pl = new PlCarrot();
 					farm.setPl(new PlCarrot());
 					farm.getPl().setField();
 					System.out.println("밭에 당근 씨앗을 심었습니다.");
@@ -215,12 +220,12 @@ public class ActFarm {
 			System.out.println("씨를 심을 수 있는 상태가 아닙니다.");
 
 		}
+		sc.close();
 
 	}
 
 	// 물 뿌리기
 	public void farmWatering(LoginAccount login, Farm farm) {
-
 		if (farm.getCondiFarm() == 2) {
 			farm.getPl().setCntWater(farm.getPl().getCntWater() + 1);
 			login.setCntWater(farm.getPl().getCntWater());
@@ -239,7 +244,6 @@ public class ActFarm {
 
 	// 수확하기
 	public void farmHarvesting(LoginAccount login, Farm farm) {
-
 		if (farm.getCondiFarm() == 3 && farm.getPl().getIsHarvest()) {
 			// 수확하려는 작물명 추출
 			String plName = farm.getPl().getPlantName();
@@ -291,8 +295,7 @@ public class ActFarm {
 	// 날짜 변경
 	public void nextDay(LoginAccount login) {
 		login.setGameDay(login.getGameDay() + 1); // 날짜 하루 넘김
-
-//		isGrow(login, farm); // 작물 성장시킬지 여부 판단
+		dao.saveData(login);
 
 		System.out.println();
 		System.out.println(login.getGameDay() + "일차");
@@ -303,13 +306,14 @@ public class ActFarm {
 	// 작물 성장시킬지 여부 판단
 	public void isGrow(LoginAccount login, Farm farm) {
 		// cntWater >= cntReach일 때 isHarvest를 true로 변경
-
 		if (farm.getPl().getCntWater() >= farm.getPl().getCntReach()) {
 			farm.setCondiFarm(3);
 			farm.getPl().setIsHarvest(true);
 
 			login.setCondiFarm(farm.getCondiFarm());
 			login.setIsHarvest(farm.getPl().getIsHarvest());
+
+			dao.saveData(login);
 
 			System.out.println(farm.getPl().getPlantName() + "을(를) 수확 할 수 있습니다!");
 

@@ -3,7 +3,8 @@ package main;
 import java.util.Scanner;
 
 public class ShopFunction {
-	Scanner sc = new Scanner(System.in);
+	private Scanner sc = new Scanner(System.in);
+	private DAO dao = new DAO();
 
 	private int crsdPrice = 500; // 당근 씨앗 가격 (500골드)
 	private int tmtsdPrice = 300; // 토마토 씨앗 가격(300골드)
@@ -17,7 +18,6 @@ public class ShopFunction {
 
 	// 상점 메뉴 기능
 	public LoginAccount shopMenu(LoginAccount login) {
-	
 		int shopmenuNum = 0;
 		
 		while (shopmenuNum != 3) {
@@ -32,6 +32,7 @@ public class ShopFunction {
 				login.setTmtsdCount(array[2]);
 				login.setRdsdCount(array[3]);
 				login.setPksdCount(array[4]);
+				
 			} else if (shopmenuNum == 2) {
 				int[] array = harvSell(login);
 				login.setGold(array[0]);
@@ -39,6 +40,7 @@ public class ShopFunction {
 				login.setTmtCount(array[2]);
 				login.setRdCount(array[3]);
 				login.setPkCount(array[4]);
+				
 			} else if (shopmenuNum == 3) {
 				System.out.println("게임 메뉴로 돌아갑니다.");
 				
@@ -48,7 +50,7 @@ public class ShopFunction {
 			}
 
 		}
-		
+		dao.saveData(login);
 		return login;
 		
 	}
@@ -72,11 +74,11 @@ public class ShopFunction {
 				System.out.println("당근 씨앗 구매 완료 ! ");
 				System.out.println("==========");
 				System.out.println("씨앗종류\t개수");
-				System.out.println("당근\t" + login.getCrsdCount() + "개");
-				System.out.println("토마토\t" + login.getTmtsdCount() + "개");
-				System.out.println("무\t" + login.getRdsdCount() + "개");
-				System.out.println("호박\t" + login.getPksdCount() + "개");
-				System.out.println("소지골드 " + login.getGold() + "G");
+				System.out.println("당근\t\t" + login.getCrsdCount() + "개");
+				System.out.println("토마토\t\t" + login.getTmtsdCount() + "개");
+				System.out.println("무\t\t" + login.getRdsdCount() + "개");
+				System.out.println("호박\t\t" + login.getPksdCount() + "개");
+				System.out.println("소지 골드\t" + login.getGold() + "G");
 				System.out.println("==========");
 			} else if (seedmenuNum == 2 && login.getGold() >= tmtsdPrice) {
 				login.setGold(login.getGold() - tmtsdPrice);
@@ -84,11 +86,11 @@ public class ShopFunction {
 				System.out.println("토마토 씨앗 구매 완료 ! ");
 				System.out.println("==========");
 				System.out.println("씨앗종류\t개수");
-				System.out.println("당근\t" + login.getCrsdCount() + "개");
-				System.out.println("토마토\t" + login.getTmtsdCount() + "개");
-				System.out.println("무\t" + login.getRdsdCount() + "개");
-				System.out.println("호박\t" + login.getPksdCount() + "개");
-				System.out.println("소지골드 " + login.getGold() + "G");
+				System.out.println("당근\t\t" + login.getCrsdCount() + "개");
+				System.out.println("토마토\t\t" + login.getTmtsdCount() + "개");
+				System.out.println("무\t\t" + login.getRdsdCount() + "개");
+				System.out.println("호박\t\t" + login.getPksdCount() + "개");
+				System.out.println("소지 골드\t" + login.getGold() + "G");
 				System.out.println("==========");
 			} else if (seedmenuNum == 3 && login.getGold() >= rdsdPrice) {
 				login.setGold(login.getGold() - rdsdPrice);
@@ -96,11 +98,11 @@ public class ShopFunction {
 				System.out.println("무 씨앗 구매 완료 ! ");
 				System.out.println("==========");
 				System.out.println("씨앗종류\t개수");
-				System.out.println("당근\t" + login.getCrsdCount() + "개");
-				System.out.println("토마토\t" + login.getTmtsdCount() + "개");
-				System.out.println("무\t" + login.getRdsdCount() + "개");
-				System.out.println("호박\t" + login.getPksdCount() + "개");
-				System.out.println("소지골드 " + login.getGold() + "G");
+				System.out.println("당근\t\t" + login.getCrsdCount() + "개");
+				System.out.println("토마토\t\t" + login.getTmtsdCount() + "개");
+				System.out.println("무\t\t" + login.getRdsdCount() + "개");
+				System.out.println("호박\t\t" + login.getPksdCount() + "개");
+				System.out.println("소지 골드\t\t" + login.getGold() + "G");
 				System.out.println("==========");
 			} else if (seedmenuNum == 4 && login.getGold() >= pksdPrice) {
 				login.setGold(login.getGold() - pksdPrice);
@@ -108,11 +110,11 @@ public class ShopFunction {
 				System.out.println("호박 씨앗 구매 완료 ! ");
 				System.out.println("==========");
 				System.out.println("씨앗종류\t개수");
-				System.out.println("당근\t" + login.getCrsdCount() + "개");
-				System.out.println("토마토\t" + login.getTmtsdCount() + "개");
-				System.out.println("무\t" + login.getRdsdCount() + "개");
-				System.out.println("호박\t" + login.getPksdCount() + "개");
-				System.out.println("소지골드 " + login.getGold() + "G");
+				System.out.println("당근\t\t" + login.getCrsdCount() + "개");
+				System.out.println("토마토\t\t" + login.getTmtsdCount() + "개");
+				System.out.println("무\t\t" + login.getRdsdCount() + "개");
+				System.out.println("호박\t\t" + login.getPksdCount() + "개");
+				System.out.println("소지 골드\t\t" + login.getGold() + "G");
 				System.out.println("==========");
 			} else if (seedmenuNum == 1 && login.getGold() < crsdPrice) {
 				System.out.println("씨앗을 구매할 골드가 부족합니다 ! ");
@@ -145,7 +147,9 @@ public class ShopFunction {
 			System.out.println("씨앗을 구매할 골드가 부족합니다 ! ");
 			
 		}
+		dao.saveData(login);
 		return array;
+		
 	}
 
 	// 수확물 판매 기능
@@ -181,7 +185,9 @@ public class ShopFunction {
 			
 			System.out.println("판매할 수확물이 존재하지 않습니다 !");
 		}
+		dao.saveData(login);
 		return array;
+		
 	}
 
 }
