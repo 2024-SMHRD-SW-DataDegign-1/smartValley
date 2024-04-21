@@ -74,7 +74,6 @@ public class GameMenu {
 		System.out.println("======================메뉴를 선택하세요.======================");
 		System.out.print("[1] 농사짓기  [2] 소지품 보기  [3] 상점  [4] 돌아가기  >> ");
 		int selectMenu = sc.nextInt();
-		sc.close();
 
 		return selectMenu;
 

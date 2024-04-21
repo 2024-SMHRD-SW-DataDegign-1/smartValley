@@ -52,7 +52,6 @@ public class ActFarm {
 		System.out.println("======================활동을 선택하세요.======================");
 		System.out.print("[1] 개간  [2] 씨앗심기  [3] 물 뿌리기  [4] 수확하기  [5] 이전으로  >> ");
 		int selectMenu = sc.nextInt();
-		sc.close();
 
 		return selectMenu;
 	}
@@ -220,7 +219,6 @@ public class ActFarm {
 			System.out.println("씨를 심을 수 있는 상태가 아닙니다.");
 
 		}
-		sc.close();
 
 	}
 
