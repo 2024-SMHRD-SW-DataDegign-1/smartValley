@@ -1,6 +1,2 @@
-# 대제목
-## 중제목
-### 소제목
 
-프로젝트 개요
-![image](https://github.com/2024-SMHRD-SW-DataDegign-1/smartValley/assets/147639795/dd37e2cc-e882-4827-890c-3079562c75f7)
+![image](https://github.com/2024-SMHRD-SW-DataDesign-1/smartValley/assets/147639795/1e9eea44-f70a-4963-a7b8-c4de0221e320)
